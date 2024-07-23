@@ -42,8 +42,8 @@ public class Application {
 
 		Double totalSalary = employees.stream()
 				.filter(e -> e.getName().charAt(0) == 'M')
-				.map(e -> e.getSalary())
-				.reduce(0.0, (x,y) -> x + y);
+				.mapToDouble(Employee::getSalary)
+				.sum();
 		
 		System.out.println("Email of people whose salary is more than " + empSalary + " :");
 		emails.forEach(System.out::println);
